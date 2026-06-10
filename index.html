@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشروع اللغة العربية - جوني بشاي</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #1a1a1a;
+            font-size: 1.4rem;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #1b3a4b;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            padding: 15px 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: bold;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #2ec4b6;
+            border-bottom: 3px solid #2ec4b6;
+        }
+
+        /* Top Header */
+        .student-header {
+            background-color: #213547;
+            color: #ffffff;
+            text-align: center;
+            padding: 140px 20px 30px 20px;
+            border-bottom: 5px solid #0077b6;
+        }
+
+        .student-header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            color: #e0f2fe;
+        }
+
+        .student-header p {
+            font-size: 1.6rem;
+            margin: 10px 0 0 0;
+            color: #2ec4b6;
+            font-weight: bold;
+        }
+
+        /* Page/Section Container */
+        .page-section {
+            display: none;
+            padding: 50px 40px;
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            border: 1px solid #dbeade;
+        }
+
+        /* Active class to show the current page */
+        .page-section.active-page {
+            display: block; 
+        }
+
+        .page-section h2 {
+            color: #1b3a4b;
+            font-size: 2.4rem;
+            border-bottom: 4px solid #0077b6;
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        /* Factual Bullet Points Styling */
+        .fact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .fact-list li {
+            position: relative;
+            padding-right: 30px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.4rem;
+        }
+
+        .fact-list li::before {
+            content: "■";
+            position: absolute;
+            right: 0;
+            color: #0077b6;
+            font-size: 1.2rem;
+            top: 2px;
+        }
+
+        /* Content Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: #f8fafd;
+            border-right: 8px solid #0077b6;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .card strong {
+            font-size: 1.6rem;
+            color: #0056b3;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Image Layout */
+        .image-gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 50px;
+            border-top: 3px solid #e2e8f0;
+            padding-top: 30px;
+        }
+
+        .image-box {
+            flex: 1;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 280px;
+            object-fit: contain; /* Keeps illustrations looking perfect without cropping */
+            background-color: #fafafa;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showPage('intro', this)" class="active">المقدمة</a></li>
+            <li><a href="#" onclick="showPage('rhetoric', this)">علوم البلاغة</a></li>
+            <li><a href="#" onclick="showPage('analysis', this)">تحليل النص الأدبي</a></li>
+            <li><a href="#" onclick="showPage('results', this)">النتائج</a></li>
+            <li><a href="#" onclick="showPage('conclusion', this)">الخاتمة</a></li>
+        </ul>
+    </nav>
+
+    <!-- Top Header -->
+    <div class="student-header">
+        <h1>علوم البلاغة وأثرها في فهم النص الأدبي</h1>
+        <p>جوني بشاي</p>
+    </div>
+
+    <!-- PAGE 1: INTRODUCTION -->
+    <div id="intro" class="page-section active-page">
+        <h2>المقدمة</h2>
+        <ul class="fact-list">
+            <li>البلاغة علم يهتم بجمال التعبير وقوة المعنى.</li>
+            <li>تساعد البلاغة في فهم الرسالة الأساسية التي يريد الكاتب إيصالها.</li>
+            <li>تجعل النص الأدبي أكثر عمقاً وتأثيراً عند القراءة.</li>
+        </ul>
+        
+        <div class="card" style="margin-top: 25px;">
+            <strong>سؤال البحث الرئيسي:</strong>
+            <p>إلى أي مدى أثرت علوم البلاغة في فهم النص الأدبي، وإلى أي مدى عكس الأدب طبيعة العصر؟</p>
+        </div>
+        
+        <div class="image-gallery">
+            <div class="image-box">
+                <img src="https://cdn.baianat.com/articles/Artboard_2%20copy%207-min_1585823467120_4efs8s.png" alt="البلاغة">
+            </div>
+            <div class="image-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0p7xFyrIfsV3HoNZA1JNGFaABxi2_JyfPOA&s" alt="اللغة العربية">
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: RHETORIC BRANCHES (BODY 1) -->
+    <div id="rhetoric" class="page-section">
+        <h2>علوم البلاغة</h2>
+        <div class="info-grid">
+            <div class="card">
+                <strong>علم البيان:</strong>
+                <p>يوضح الصور والتشبيهات والاستعارات والكناية، ويساعد في توضيح الفكرة بطرق تعبيرية مختلفة.</p>
+            </div>
+            <div class="card">
+                <strong>علم المعاني:</strong>
+                <p>يفسر أسلوب الكاتب ومقصده من خلال دراسة تراكيب الجمل واختيار الكلمات المناسبة للموقف.</p>
+            </div>
+            <div class="card">
+                <strong>علم البديع:</strong>
+                <p>يبرز جمال اللغة والمحسنات اللفظية مثل السجع والجناس، مما يعطي النص نغماً جميلاً.</p>
+            </div>
+        </div>
+
+        <div class="image-gallery">
+            <div class="image-box">
+                <img src="https://i.ytimg.com/vi/iiAMaDEt8Kg/hq720.jpg?sqp=-oaymwExCK4FEIIDSFryq4qpAyMIARUAAIhCGAHwAQH4Af4JgALQBYoCDAgAEAEYVSBaKGUwDw==&rs=AOn4CLCvctL_KqAmMYOKDogE0zcUgf9B9w" alt="أقسام البلاغة">
+            </div>
+            <div class="image-box">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgScRJC6T516XJx-pd-Y4BfJK1DsP1V57cWw0Pi3A0VMaVnQeOSJXYmmiADbe9hQ1N03MhtSCyvJn94Zec1xNkmsc5dyf1SP1DT3uL8Wu6rgOpHqp5fi4tbzfjDZ_7uR9WBC-IbzqYebpKc/s16000-rw/%25D8%25A3%25D9%2587%25D9%2585%25D9%258A%25D8%25A9+%25D8%25B9%25D9%2584%25D9%2585+%25D8%25A7%25D9%2584%25D8%25A8%25D9%2584%25D8%25A7%25D8%25BA%25D8%25A9.JPG" alt="أهمية علم البلاغة">
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: TEXT ANALYSIS (BODY 2) -->
+    <div id="analysis" class="page-section">
+        <h2>تحليل النص الأدبي (خليل مطران - عتاب اللغة العربية لأهلها)</h2>
+        <ul class="fact-list">
+            <li>يعبر النص عن مكانة اللغة العربية وأهمية الحفاظ عليها من الإهمال.</li>
+            <li>استخدم الشاعر أساليب بلاغية مؤثرة، مثل تشبيه اللغة العربية بأم تعاتب أبناءها.</li>
+            <li>تساعد أدوات البلاغة في فهم معاني القصيدة بصورة سهلة وعميقة.</li>
+        </ul>
+
+        <div class="image-gallery">
+            <div class="image-box">
+                <img src="https://blog.alifbeetamkeen.com/wp-content/uploads/2025/10/%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%BA%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9.webp" alt="البلاغة العربية">
+            </div>
+            <div class="image-box">
+                <img src="https://modo3.com/thumbs/fit630x300/243487/1557385232/%D9%85%D8%A7_%D9%87%D9%88_%D8%B9%D9%84%D9%85_%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%BA%D8%A9.jpg" alt="ما هو علم البلاغة">
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: RESULTS (BODY 3) -->
+    <div id="results" class="page-section">
+        <h2>النتائج</h2>
+        <ul class="fact-list">
+            <li>البلاغة تساعد في فهم النص الأدبي بشكل أفضل عن طريق شرح الكلمات والصور الجمالية.</li>
+            <li>تكشف البلاغة عن جمال اللغة العربية وقدرتها على التعبير عن الأفكار المختلفة.</li>
+            <li>توضح الأدوات البلاغية كيف يعبر الأدب عن أحوال المجتمع والمشاكل التي يمر بها العصر.</li>
+        </ul>
+
+        <div class="image-gallery">
+            <div class="image-box">
+                <img src="https://el3raby8er.com/wp-content/uploads/2024/09/1-1-768x768.png" alt="اللغة العربية والبلاغة">
+            </div>
+            <div class="image-box">
+                <img src="https://nadiim.com/wp-content/uploads/elementor/thumbs/pexels-pixabay-159833-scaled-q6jpxdllzcxaxf4cbmhyzfvtqkvptyl0zpouqlif1c.jpg" alt="كتب ومطالعة">
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: CONCLUSION -->
+    <div id="conclusion" class="page-section">
+        <h2>الخاتمة</h2>
+        <ul class="fact-list">
+            <li>علوم البلاغة أداة ضرورية لفهم أي نص أدبي وتجنب القراءة السطحية.</li>
+            <li>تجعل البلاغة القارئ قادراً على تحليل المعاني وتذوق الجمال اللغوي.</li>
+            <li>يبقى الأدب دائماً المرآة التي تعكس ثقافة المجتمع وتاريخ العصر.</li>
+        </ul>
+
+        <div class="card" style="margin-top: 30px;">
+            <strong>إجابة سؤال البحث:</strong>
+            <p>تساعد علوم البلاغة في فهم معاني النص الأدبي بوضوح، بينما يعكس الأدب قضايا العصر وثقافته من خلال الأساليب والصور المستخدمة.</p>
+        </div>
+
+        <div class="image-gallery">
+            <div class="image-box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr1hddtnEEsHH5yEdbLx3vCm4qA7D2U99VqA&s" alt="دراسات لغوية">
+            </div>
+            <div class="image-box">
+                <img src="https://pictwords.com/wp-content/uploads/2025/09/%D8%A7%D9%84%D8%A8%D9%84%D8%A7%D8%BA%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9.webp" alt="البلاغة">
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle switching sections -->
+    <script>
+        function showPage(pageId, navElement) {
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.remove('active-page'));
+            
+            const selectedPage = document.getElementById(pageId);
+            if(selectedPage) {
+                selectedPage.classList.add('active-page');
+            }
+
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            navElement.classList.add('active');
+
+            window.scrollTo({top: 260, behavior: 'smooth'});
+        }
+    </script>
+
+</body>
+</html>
